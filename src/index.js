@@ -1,9 +1,4 @@
 module.exports = function toReadable (number) {
-    return toReadableFrom0To999(number)
-}
-
-
-function toReadableFrom0To999 (number) {
     switch (true) {
         case (number === 0): 
           return 'zero';
@@ -55,7 +50,7 @@ function toReadableFrom100To999 (number) {
     if (number.slice(1) === '00') {
       return `${toReadableFrom1To19(number[0])} hundred`;
     } else {
-      return `${toReadableFrom1To19(number[0])} hundred ${toReadableFrom0To999(Number(number.slice(1)))}`;
+      return `${toReadableFrom1To19(number[0])} hundred ${module.exports(Number(number.slice(1)))}`;
     }
 }
 
